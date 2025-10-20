@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+section{
+    min-height: 105vh;
+    margin: 0;
+    padding: 0;
+}
+.delete{
+    top: 20px;
+    left: 20px;
+    position: fixed;
+    width: 100px;
+    height: auto;
+    z-index: 1000;
+    transition: transform 0.06s ease-in-out;
+}
+
+.delete:active {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.introduccion {
+    background-image: url("imagenes/fondo1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+
+
+}
+
+
+.introduccion .logo {
+    position: absolute;
+    width: 500px;
+    height: auto;
+    object-fit: contain;
+    left: 16%;
+    top: 52%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+.introduccion .bocadillo {
+    position: absolute;
+    width: 1090px;
+    height: auto;
+    object-fit: contain;
+    left: 29%;
+    z-index: 2;
+}
+.introduccion .señal {
+    position: absolute;
+    width: 700px;
+    height: auto;
+    object-fit: contain;
+    bottom: 0%;
+    left: 69%;
+    z-index: 2;
+    transition: transform 0.06s ease-in-out;
+}
+.introduccion .teamrocket {
+    position: absolute;
+    width: 450px;
+    height: auto;
+    object-fit: contain;
+    bottom: 0%;
+    left: 50%;
+    z-index: 2;
+}
+.introduccion .gente {
+    position: absolute;
+    width: 350px;
+    height: auto;
+    object-fit: contain;
+    top: 0%;
+    left: 56%;
+    z-index: 2;
+}
+.introduccion .señal,
+.introduccion .teamrocket,
+.introduccion .gente {
+    transition: transform 180ms cubic-bezier(.2,.8,.2,1), filter 180ms ease;
+    transform-origin: center center;
+    cursor: pointer;
+}
+.introduccion .señal:hover,
+.introduccion .teamrocket:hover,
+.introduccion .gente:hover {
+    transform: scale(1.08);
+}
+
+.introduccion .señal:hover,
+.introduccion .teamrocket:hover,
+.introduccion .gente:hover {
+    filter: drop-shadow(0 8px 18px rgba(118, 104, 1, 0.458));
+}
+.info {
+    background-image: url("imagenes/fondo2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+.personajes {
+    background-image: url("imagenes/fondo3.png");
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.personajes .tele {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.personajes .mano {
+    position: absolute;
+    width: 40%;
+    height: auto;
+    object-fit: contain;
+    right: 10%;  
+    bottom: 10%; 
+    z-index: 2;
+}
+
+.personajes .totakeke {
+    position: absolute;
+    width: 360px;
+    height: auto;
+    object-fit: contain;
+    right: 18%;   
+    bottom: 30%;  
+    z-index: 3;
+}
+.personajes .hoja {
+    position: absolute;
+    width: 500px;
+    height: auto;
+    object-fit: contain;
+    left: 5%;   
+    bottom: 10%;  
+    z-index: 4;
+}
+.personajes .disco {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+    left: 35%;   
+    bottom: 22%;  
+    z-index: 4;
+}
+.personajes .juegods {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+    left: 47%;   
+    bottom: 45%;  
+    z-index: 4;
+}
+.personajes .lore1 {
+    position: absolute;
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+    left: 12%;   
+    bottom: 25%;  
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 18px;
+    z-index: 4;
+}
+h3 {
+    position: absolute;
+    left: 15%;
+    top: 12%;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 98px;
+    color: white;
+    z-index: 4;
+}
+.nosotros {
+    background-image: url("imagenes/fondo4.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+
