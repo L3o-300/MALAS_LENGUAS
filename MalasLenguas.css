@@ -39,10 +39,7 @@ section{
     background-attachment: fixed;
     position: relative;
     overflow: hidden;
-
-
 }
-
 
 .introduccion .logo {
     position: absolute;
@@ -109,7 +106,7 @@ section{
     filter: drop-shadow(0 8px 18px rgba(118, 104, 1, 0.458));
 }
 .info {
-    background-image: url("imagenes/fondo2.jpg");
+    background-image: url("");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -122,7 +119,7 @@ section{
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 100vh;
+    min-height: 115vh;
     width: 100%;
     position: relative;
 }
@@ -138,7 +135,7 @@ section{
     pointer-events: none;
 }
 
-.personajes .mano {
+.ScrollCarrusel .mano {
     position: absolute;
     width: 40%;
     height: auto;
@@ -150,21 +147,21 @@ section{
 
 .personajes .totakeke {
     position: absolute;
-    width: 360px;
+    width: 340px;
     height: auto;
     object-fit: contain;
     right: 18%;   
     bottom: 30%;  
-    z-index: 3;
+    z-index: 20;
 }
-.personajes .hoja {
+.ScrollCarrusel .hoja {
     position: absolute;
     width: 500px;
     height: auto;
     object-fit: contain;
     left: 5%;   
     bottom: 10%;  
-    z-index: 4;
+    z-index: 2;
 }
 .personajes .disco {
     position: absolute;
@@ -173,7 +170,7 @@ section{
     object-fit: contain;
     left: 35%;   
     bottom: 22%;  
-    z-index: 4;
+    z-index: 20;
 }
 .personajes .juegods {
     position: absolute;
@@ -182,7 +179,7 @@ section{
     object-fit: contain;
     left: 47%;   
     bottom: 45%;  
-    z-index: 4;
+    z-index: 20;
 }
 .personajes .lore1 {
     position: absolute;
@@ -193,17 +190,110 @@ section{
     bottom: 25%;  
     font-family: 'Comic Sans MS', cursive, sans-serif;
     font-size: 18px;
-    z-index: 4;
+    z-index: 20;
 }
-h3 {
+.TOTAKEKEMINI h3 {
     position: absolute;
     left: 15%;
     top: 12%;
     font-family: 'Comic Sans MS', cursive, sans-serif;
     font-size: 98px;
     color: white;
-    z-index: 4;
+    z-index: 20;
 }
+
+.YAYOIMINI .yayoi {
+    position: absolute;
+    width: 360px;
+    height: auto;
+    object-fit: contain;
+    right: 18%;   
+    bottom: 30%;  
+    z-index: 20;  
+}
+
+.YAYOIMINI .yayoi2 {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+    left: 35%;   
+    bottom: 22%;  
+    z-index: 20; 
+}
+
+.YAYOIMINI h3 {
+    position: absolute;
+    left: 15%;
+    top: 12%;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 98px;
+    color: white;
+    z-index: 20;  
+}
+
+.YAYOIMINI .lore1 {
+    position: absolute;
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+    left: 12%;   
+    bottom: 25%;  
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 18px;
+    z-index: 20;  
+}
+
+.ScrollCarrusel {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: transparent;
+}
+
+.TOTAKEKEMINI, .YAYOIMINI {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 10;
+    width: 100px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.nav-button img {
+    width: 120%;
+    height: auto;
+}
+
+.nav-button:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-button {
+    left: 20px;
+}
+
+.next-button {
+    right: 20px;
+}
+
 .nosotros {
     background-image: url("imagenes/fondo4.jpg");
     background-size: cover;
