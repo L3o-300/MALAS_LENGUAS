@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Poppins:wght@400;600;800&family=Rubik+Dirt&display=swap');
 
+:root {
+    /* Color del anillo/sombra de foco. Cámbialo según prefieras */
+    --focus-color: rgba(79,179,255,0.95); /* azul claro */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -117,6 +122,41 @@ section{
 .introduccion .teamrocket:hover,
 .introduccion .gente:hover {
     transform: scale(1.08);
+}
+
+/* Focus styles for accessibility (keyboard focus)
+   Uses a CSS variable --focus-color so you can change the ring color easily */
+.introduccion .señal:focus,
+.introduccion .teamrocket:focus,
+.introduccion .gente:focus,
+.introduccion .señal:focus-visible,
+.introduccion .teamrocket:focus-visible,
+.introduccion .gente:focus-visible,
+.introduccion a:focus .señal,
+.introduccion a:focus .teamrocket,
+.introduccion a:focus .gente {
+    outline: none; /* custom focus indicator */
+    transform: scale(1.06);
+    /* colored ring + subtle shadow */
+    box-shadow: 0 0 0 6px var(--focus-color), 0 6px 20px rgba(0,0,0,0.25);
+    border-radius: 8px;
+    transition: transform 120ms cubic-bezier(.2,.8,.2,1), box-shadow 120ms ease, filter 120ms ease;
+    /* small visual change to the image itself */
+    filter: brightness(1.04) saturate(1.12);
+}
+
+/* Provide a subtle visible focus ring for reduced-motion users */
+@media (prefers-reduced-motion: reduce) {
+    .introduccion .señal:focus,
+    .introduccion .teamrocket:focus,
+    .introduccion .gente:focus,
+    .introduccion a:focus .señal,
+    .introduccion a:focus .teamrocket,
+    .introduccion a:focus .gente {
+        transform: none;
+        box-shadow: 0 0 0 4px var(--focus-color);
+        filter: none;
+    }
 }
 
 #linesvg {
