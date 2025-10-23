@@ -7,16 +7,30 @@
     <link rel="stylesheet" type="text/css" href="MalasLenguas.css">
 </head>
 <body>
+    <svg id="linesvg" viewBox="0 0 100 100" width="200" height="200" style="position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;">
+        <defs>
+            <filter id="glow">
+                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+        </defs>
+        <g id="dvd">
+            <image href="imagenes/animar.png" width="120" height="70" x="0" y="0" filter="url(#glow)"/>
+        </g>
+    </svg>
     <header>
-        <nav> <a href="#introduccion"><img src="imagenes/tirar_pa_tras.png" class="delete" alt="inicio"></a></nav>
+        <nav> <a href="#introduccion"><img src="imagenes/tirar_pa_tras.png" title="Volver al inicio" class="delete" alt="inicio"></a></nav>
     </header>
     <main>
         <section class="introduccion" id="introduccion">
-            <img src="imagenes/logoo.png" class="logo" alt="logo">
-            <img src="imagenes/bocadillo del lobo.png" class="bocadillo" alt="bocadillo">
-           <a href="#info"><img src="imagenes/señales y semaforo.png" class="señal" alt="señales"></a>
-           <a href="#personajes"><img src="imagenes/multitud.png" class="gente" alt="gente"></a>
-           <a href="#nosotros"><img src="imagenes/teamrocket.png" class="teamrocket" alt="nosotros"></a>
+            <img src="imagenes/logoo.png" class="logo" alt="logo" title="Logo Malas Lenguas">
+            <img src="imagenes/bocadillo del lobo.png" class="bocadillo" alt="bocadillo" title="Bocadillo">
+           <a href="#info" title="Ir a Información"><img src="imagenes/señales y semaforo.png" class="señal" alt="señales"></a>
+           <a href="#personajes" title="Ir a Personajes"><img src="imagenes/multitud.png" class="gente" alt="gente"></a>
+           <a href="#nosotros" title="Ir a Nosotros"><img src="imagenes/teamrocket.png" class="teamrocket" alt="nosotros"></a>
         </section>
         <section class="info" id="info">
           
@@ -24,8 +38,8 @@
         <section class="personajes" id="personajes">
             <img src="imagenes/tele.png" class="tele" alt="tele">
             <div class="ScrollCarrusel">
-                <button class="nav-button prev-button"><img src="imagenes/manoL.png"></button>
-                <button class="nav-button next-button"><img src="imagenes/manoR.png"></button>
+                <button class="nav-button prev-button"><img src="imagenes/manoL.png" title="personaje anterior"></button>
+                <button class="nav-button next-button"><img src="imagenes/manoR.png" title="siguiente personaje"></button>
                 <section class="TOTAKEKEMINI">
                     <h3>TOTAKEKE</h3>
                     <img src="imagenes/mano.png" class="mano" alt="mano">
@@ -118,11 +132,12 @@
 
 
     </main>
-    <!--JS Bootsrap-->
+    <!-- JS GSAP  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!--JS Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- JS GSAP-->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> 
-     <!-- JS personalizado -->
-      <script src="MalasLenguas.js"></script>
+    <!-- JS personalizado  -->
+    <script src="MalasLenguas.js"></script>
     </body>
 </html>

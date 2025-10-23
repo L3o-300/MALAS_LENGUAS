@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Poppins:wght@400;600;800&family=Rubik+Dirt&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +12,23 @@ body, html {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
+    font-family: 'Rubik Dirt', sans-serif;
+}
+
+#linesvg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: visible;
+}
+
+#dvd {
+    transform-origin: center;
+    will-change: transform;
 }
 
 section{
@@ -100,10 +119,36 @@ section{
     transform: scale(1.08);
 }
 
+#linesvg {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 200px;
+    height: 100px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 100;
+    mix-blend-mode: normal;
+}
+
+#linesvg image {
+    filter: brightness(1.2) drop-shadow(0 0 5px rgba(144, 255, 102, 0.7));
+}
+
 .introduccion .señal:hover,
 .introduccion .teamrocket:hover,
 .introduccion .gente:hover {
     filter: drop-shadow(0 8px 18px rgba(118, 104, 1, 0.458));
+}
+#linesvg {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 300px;
+  height: 100px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 100;
 }
 .info {
     background-image: url("");
@@ -127,7 +172,7 @@ section{
     position: absolute;
     left: 15%;
     top: 12%;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Rubik Dirt', sans-serif;
     font-size: 98px;
     color: white;
     z-index: 20;
@@ -192,12 +237,12 @@ section{
 }
 .personajes .lore1 {
     position: absolute;
-    width: 300px;
+    width: 280px;
     height: auto;
     object-fit: contain;
     left: 12%;   
     bottom: 25%;  
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Rubik Dirt', sans-serif;
     font-size: 18px;
     z-index: 20;
 }
@@ -205,7 +250,7 @@ section{
     position: absolute;
     left: 15%;
     top: 12%;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Rubik Dirt', sans-serif;
     font-size: 98px;
     color: white;
     z-index: 20;
@@ -244,7 +289,7 @@ section{
     position: absolute;
     left: 15%;
     top: 12%;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Rubik Dirt', sans-serif;
     font-size: 98px;
     color: white;
     z-index: 20;  
@@ -252,13 +297,13 @@ section{
 
 .YAYOIMINI .lore1 {
     position: absolute;
-    width: 300px;
+    width: 280px;
     height: auto;
     object-fit: contain;
     left: 12%;   
-    bottom: 25%;  
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    font-size: 18px;
+    bottom: 27%;  
+    font-family: 'Rubik Dirt', sans-serif;
+    font-size: 20px;
     z-index: 20;  
 }
 
@@ -299,8 +344,8 @@ section{
     object-fit: contain;
     left: 12%;
     bottom: 27%;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    font-size: 18px;
+    font-family: 'Rubik Dirt', sans-serif;
+    font-size: 19px;
     z-index: 20;
 }
 
@@ -333,13 +378,13 @@ section{
 }
 .EDWARDMINI .lore1 {
     position: absolute;
-    width: 300px;
+    width: 280px;
     height: auto;
     object-fit: contain;
     left: 12%;
-    bottom: 32%;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    font-size: 18px;
+    bottom: 27%;
+    font-family: 'Rubik Dirt', sans-serif;
+    font-size: 20px;
     z-index: 20;
 }
 
@@ -400,13 +445,13 @@ section{
 }
 .DINOMINI .lore1 {
     position: absolute;
-    width: 300px;
+    width: 270px;
     height: auto;
     object-fit: contain;
     left: 12%;
-    bottom: 30%;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    font-size: 18px;
+    bottom: 27%;
+    font-family: 'Rubik Dirt', sans-serif;
+    font-size: 20px;
     z-index: 20;
 }
 

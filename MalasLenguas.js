@@ -56,3 +56,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log(`Carrusel inicializado con ${slides.length} slides`);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    
+
+    const rightCenter = {
+        x: windowWidth - 100, 
+        y: windowHeight / 2   
+    };
+    const bottomLeft = {
+        x: 0,                
+        y: windowHeight  
+    };
+    const start = {
+        x: 0,                 
+        y: 0                  
+    };
+
+
+    const tl = gsap.timeline({
+        repeat: -1,           
+        defaults: {
+            duration: 4,     
+            ease: "power1.inOut" 
+        }
+    });
+
+
+    tl.to("#dvd", {
+        x: rightCenter.x,
+        y: rightCenter.y,
+        duration: 4
+    })
+    .to("#dvd", {
+        x: bottomLeft.x,
+        y: bottomLeft.y,
+        duration: 4
+    })
+    .to("#dvd", {
+        x: rightCenter.x,
+        y: rightCenter.y,
+        duration: 4
+    })
+    .to("#dvd", {
+        x: start.x,
+        y: start.y,
+        duration: 4
+    });
+});
