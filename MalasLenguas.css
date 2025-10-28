@@ -618,6 +618,7 @@ section{
     background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
+    min-height: 120vh;
 }
 .nosotrostexto {
     position: absolute;
@@ -637,30 +638,34 @@ section{
     overflow: visible;
 }
 
-.footer {
-    background-color: #222;
-    color: white;
+footer {
+    background: transparent; /* Sin fondo propio */
+    color: #ffffff; /* Mismo color que el texto de nosotros */
     text-align: center;
-    padding: 20px 0;
     font-family: 'Rubik Dirt', sans-serif;
-    position: relative;
-}
-.leo {
-    width: 80px;
-    height: auto;
-    object-fit: contain;
-    margin: 0 10px;
-    vertical-align: middle;
-    float: left; /* añadido: flota a la izquierda */
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.marie {
+footer .leo {
+    position: absolute;
+    left: 20px;
     width: 80px;
     height: auto;
     object-fit: contain;
-    margin: 0 10px;
-    vertical-align: middle;
-    float: right; /* añadido: flota a la derecha */
+}
+
+footer .marie {
+    position: absolute;
+    right: 20px;
+    width: 80px;
+    height: auto;
+    object-fit: contain;
 }
 
 /* ========================================================= */
@@ -790,72 +795,145 @@ section{
     display: none;
   }
 
-  /* ====== PERSONAJES ====== */
-    /* En responsive queremos mostrar UNA foto del personaje y la info al lado
-         manteniendo el carrusel. Ocultamos elementos decorativos y forzamos
-         que cada slide se comporte como un contenedor flexible (imagen + texto). */
-    .personajes section {
-        display: flex;
-        flex-direction:column; /* imagen + texto lado a lado */
-        align-items: center;
-        justify-content: center;
-        gap: 24px;
-        padding: 40px 20px;
-    }
 
-    /* Forzamos que la imagen principal ocupe hasta ~45% y se muestre correctamente
-         si el HTML usa <img> para la foto del personaje. Si la imagen tiene una
-         clase concreta (p.ej. .character) preferir esa clase y ajustar aquí. */
-    .personajes section img {
-        max-width: 45%;
-        height: auto;
-        position: relative !important;
-        left: auto !important;
-        right: auto !important;
-        bottom: auto !important;
-        top: auto !important;
-        object-fit: contain;
-        z-index: 6;
-    }
+   .personajes section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 40px 20px;
+}
 
-    /* El bloque de texto (article.lore1) se coloca al lado y tiene ancho limitado */
-    .personajes section article.lore1 {
-        max-width: 45%;
-        position: relative !important;
-        left: auto; right: auto; bottom: auto; top: auto;
-        transform: none;
-        text-align: left;
-        color: #fff; /* asegúrate que contraste con el fondo móvil */
-        z-index: 6;
-    }
+.personajes section img.totakeke,
+.personajes section img.yayoi,
+.personajes section img.ladygagamini,
+.personajes section img.edwardmini,
+.personajes section img.rusowskymini,
+.personajes section img.dinomini {
+    max-width: 70%;
+    height: auto;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    top: auto !important;
+    object-fit: contain;
+    z-index: 6;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
 
-    /* Ocultamos elementos puramente decorativos que usan posicionamiento absoluto
-         y pueden romper el layout en móviles. Conservamos elementos de texto y
-         la estructura del carrusel (botones, slides). Ajusta las clases si tu HTML
-         usa otras convenciones. */
-    .personajes .totakeke,
-    .personajes .disco,
-    .personajes .juegods,
-    .personajes .tele,
-    .ScrollCarrusel .mano,
-    .ScrollCarrusel .hoja {
-        display: none !important;
-    }
+.personajes section img.totakeke:hover,
+.personajes section img.yayoi:hover,
+.personajes section img.ladygagamini:hover,
+.personajes section img.edwardmini:hover,
+.personajes section img.rusowskymini:hover,
+.personajes section img.dinomini:hover {
+    transform: scale(1.05);
+}
 
-    /* Fondo distinto para la sección personajes en responsive */
-    .personajes {
-        background-image: url("imagenes/movil.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-    }
+.personajes section h3 {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    font-family: 'Rubik Dirt', sans-serif;
+    font-size: 48px;
+    color: white;
+    z-index: 20;
+    text-align: center;
+    margin: 0;
+}
 
-  /* ====== NOSOTROS ====== */
+
+.personajes section article.lore1 {
+    display: none !important;
+}
+
+
+.modal-content {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #fff;
+    border-radius: 15px;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.modal-title {
+    font-family: 'Rubik Dirt', sans-serif;
+    color: #fff;
+    font-size: 28px;
+}
+
+.modal-body {
+    font-family: 'Rubik Dirt', sans-serif;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.btn-close {
+    filter: invert(1);
+}
+
+.personajes .disco,
+.personajes .juegods,
+.personajes .tele,
+.ScrollCarrusel .mano,
+.ScrollCarrusel .hoja,
+.ScrollCarrusel .yayoi2,
+.ScrollCarrusel .yayoi3,
+.ScrollCarrusel .ladygaga1,
+.ScrollCarrusel .ladygaga2,
+.ScrollCarrusel .edward1,
+.ScrollCarrusel .edward2,
+.ScrollCarrusel .rusowsky,
+.ScrollCarrusel .rusowsky2,
+.ScrollCarrusel .dino1,
+.ScrollCarrusel .dino2 {
+    display: none !important;
+}
+
+.modal-content {
+    background-image: url(imagenes/textura_content.jpg);
+    background-size: 120%; 
+    background-position: center center; 
+    border: 2px solid #8B4513;
+    overflow: hidden;
+}
+
+
+.personajes {
+    background-image: url("imagenes/movil.png");
+    background-size: 125%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+
+.nav-button {
+    width: 60px !important;
+}
+
+.nav-button img {
+    width: 100% !important;
+}
+
+.prev-button {
+    left: 10px !important;
+}
+
+.next-button {
+    right: 10px !important;
+}
+ 
   .nosotros {
     background-image: url("imagenes/fondo4.jpg.png");
     background-size: cover;
-    background-position: 80% ; /* movido hacia la izquierda para mostrar más la parte derecha */
+    background-position: 80% ; 
     background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
@@ -867,7 +945,7 @@ section{
         transform: translate(-40%, -75%) rotate(-21deg);
         text-align: left;
         width: 90%;
-    font-size: 20px; /* tamaño normal en desktop */
+    font-size: 20px; 
     line-height: 1.1;
     max-width: 1200px;
     z-index: 5;

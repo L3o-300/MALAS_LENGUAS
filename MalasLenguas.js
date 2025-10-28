@@ -57,12 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(`Carrusel inicializado con ${slides.length} slides`);
 });
 
+
 document.addEventListener('DOMContentLoaded', function() {
 
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
     
-
     const rightCenter = {
         x: windowWidth - 100, 
         y: windowHeight / 2   
@@ -76,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
         y: 0                  
     };
 
-
     const tl = gsap.timeline({
         repeat: -1,           
         defaults: {
@@ -84,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
             ease: "power1.inOut" 
         }
     });
-
 
     tl.to("#dvd", {
         x: rightCenter.x,
@@ -106,4 +104,66 @@ document.addEventListener('DOMContentLoaded', function() {
         y: start.y,
         duration: 4
     });
+});
+
+// ========== MODAL DE PERSONAJES (SOLO EN RESPONSIVE) ==========
+document.addEventListener('DOMContentLoaded', function() {
+    // Función para verificar si estamos en vista móvil
+    function isMobileView() {
+        return window.innerWidth <= 1024; // Ajusta según tu breakpoint del @media
+    }
+    
+    // Seleccionar todas las imágenes principales de personajes
+    const personajeImages = document.querySelectorAll(
+        '.totakeke, .yayoi, .ladygagamini, .edwardmini, .rusowskymini, .dinomini'
+    );
+    
+    // Verificar que Bootstrap esté cargado
+    if (typeof bootstrap === 'undefined') {
+        console.error('Bootstrap no está cargado');
+        return;
+    }
+    
+    // Crear instancia del modal de Bootstrap
+    const loreModalElement = document.getElementById('loreModal');
+    if (!loreModalElement) {
+        console.error('No se encontró el modal #loreModal');
+        return;
+    }
+    
+    const loreModal = new bootstrap.Modal(loreModalElement);
+    
+    // Añadir event listener a cada imagen
+    personajeImages.forEach(function(img) {
+        img.addEventListener('click', function() {
+            // Solo ejecutar en vista móvil
+            if (!isMobileView()) return;
+            
+            // Encontrar la sección del personaje
+            const section = this.closest('section');
+            const lore = section.querySelector('.lore1');
+            const title = section.querySelector('h3');
+            
+            if (lore && title) {
+                // Actualizar contenido del modal
+                document.getElementById('loreModalLabel').textContent = title.textContent;
+                document.getElementById('loreModalBody').innerHTML = lore.innerHTML;
+                
+                // Mostrar el modal
+                loreModal.show();
+            }
+        });
+    });
+    
+    // Cerrar modal al cambiar a vista desktop
+    window.addEventListener('resize', function() {
+        if (!isMobileView()) {
+            const modalInstance = bootstrap.Modal.getInstance(loreModalElement);
+            if (modalInstance) {
+                modalInstance.hide();
+            }
+        }
+    });
+    
+    console.log('Sistema de modales inicializado correctamente');
 });
