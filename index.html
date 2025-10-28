@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Malas lenguas</title>
     <link rel="stylesheet" type="text/css" href="MalasLenguas.css">
+    <link rel="stylesheet" href="./bootstrap/styles.css">
 </head>
 <body>
     <svg id="linesvg" viewBox="0 0 100 100" width="200" height="200" style="position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;">
@@ -33,7 +34,24 @@
            <a href="#nosotros" title="Ir a Nosotros"><img src="imagenes/teamrocket.png" class="teamrocket" alt="nosotros"></a>
         </section>
         <section class="info" id="info">
-          
+             <article class="infodelapagina">  
+                Nosotros somos Malas Lenguas,<br>
+                una pagina muy chula y sobretodo divulgativa.<br>
+                No te aburriras con nosotros especialmente<br>
+                porque te traemos lo mejorcito de tus<br>
+                personajes favoritos historicos reales y no tanto.<br>
+                Por lo que entra desde cualquiera de los dispositivos<br>
+                que tengas disponibles y estate atento a nuestra publicación semanal<br>
+                de nuevos personajes.<br>
+                ¡Te esperamos!
+                </article>
+        
+            <article class="infodelapagina3">  
+                RECUERDA QUE PUBLICAMOS<br>
+                NUEVOS PERSONAJES<br>
+                LOS VIERNES A LAS 18:00H<br>
+            </article>
+
         </section>
         <section class="personajes" id="personajes">
             <img src="imagenes/tele.png" class="tele" alt="tele">
@@ -105,10 +123,11 @@
                     <img src="imagenes/rusowsky2.jpg" class="rusowsky2" alt="rusowsky">
 
                     <article class="lore1">
-                        Influencer y youtuber español.<br>
-                        Conocido por sus vídeos de humor y estilo de vida.<br>
-                        La vida es una aventura, ¡vívela al máximo!<br>
-                        -Rusowsky ¿?? ES REAL ESTO CHAT GPT JAJAJAJA
+                        El cantante favorito de nuestras modernas.<br>
+                        Con su ultimo album "DAISY" ha conquistado nuestro corazoncito.<br>
+                        Conocido por su estilo único y su música pegajosa.<br>
+                        Y si pasa, pues que pase.<br>
+                        -Rusowsky
                     </article>
                 </section> 
                     <section class="DINOMINI">
@@ -127,7 +146,25 @@
                 </section> 
             </section>
         </section>
-        <section class="nosotros" id="nosotros"></section>
+        <section class="nosotros" id="nosotros">
+            <article class="nosotrostexto">  
+                Somos Leo y Marie,<br>
+                creadores de Malas Lenguas.<br>
+                Nos encanta la historia y<br>
+                compartir datos curiosos<br>
+                sobre personajes famosos.<br>
+                Esperamos que disfrutes<br>
+                de nuestra<br>
+                web tanto como nosotros<br> 
+                disfrutamos creándola.<br>
+                ¡Gracias por visitarnos!
+            </article>
+        </section>
+        <footer>
+            <img src="imagenes/gatoYO.png" class="leo" alt="LEO">
+            <img src="imagenes/conejoMARIE.png" class="marie" alt="MARIE">
+            Web creada por Leo y Marie :3
+        </footer>
 
 
 
@@ -139,5 +176,27 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- JS personalizado  -->
     <script src="MalasLenguas.js"></script>
+    <script>
+  const hamburger = document.createElement('div');
+  hamburger.classList.add('hamburger');
+  hamburger.innerHTML = '<span></span><span></span><span></span>';
+  document.body.appendChild(hamburger);
+
+  const menu = document.createElement('div');
+  menu.classList.add('mobile-menu');
+  menu.innerHTML = `
+    <a href="#introduccion">Inicio</a>
+    <a href="#info">Info</a>
+    <a href="#personajes">Personajes</a>
+    <a href="#nosotros">Nosotros</a>
+  `;
+  document.body.appendChild(menu);
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    menu.classList.toggle('active');
+  });
+</script>
+
     </body>
 </html>

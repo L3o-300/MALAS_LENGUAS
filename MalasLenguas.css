@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Poppins:wght@400;600;800&family=Rubik+Dirt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lexend+Deca:wght@100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet');
+
 
 :root {
     /* Color del anillo/sombra de foco. Cámbialo según prefieras */
@@ -75,9 +76,29 @@ section{
     transform: translate(-50%, -50%);
     z-index: 2;
 }
+/* Agrandar visualmente el "fondo" del logo con un pseudo-elemento
+   Esto crea un área de fondo más grande detrás de la imagen sin tocar el HTML */
+.introduccion .logo {
+    z-index: 3; /* logo por encima del fondo decorativo */
+    display: block; /* necesario para el ::before */
+}
+.introduccion .logo::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% + 120px); /* controla cuánto mayor será el fondo */
+    height: calc(100% + 120px);
+    background: rgba(255,255,255,0.06); /* sutil overlay, cámbialo por imagen si quieres */
+    border-radius: 18px; /* borde suave alrededor del logo */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    z-index: -1; /* detrás de la imagen */
+    pointer-events: none;
+}
 .introduccion .bocadillo {
     position: absolute;
-    width: 1090px;
+    width: 1095px;
     height: auto;
     object-fit: contain;
     left: 29%;
@@ -191,12 +212,49 @@ section{
   z-index: 100;
 }
 .info {
-    background-image: url("");
+    background-image: url("imagenes/fondointroducción.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
+}
+
+.infodelapagina {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    font-weight: 600;
+    font-size: 20px;
+    left: 15%;
+    top: 50%; 
+    transform: translateY(-50%);
+    width: 30%; 
+    max-width: 500px; 
+    padding: 28px;
+    color: #000000;
+    z-index: 5;
+    overflow: visible;
+    line-height: 1.5; 
+}
+
+.infodelapagina3 {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute; 
+    font-weight: 600; 
+    left: 68%;
+    top: 40%; 
+    transform: translateY(-50%);
+    width: 75%; 
+    max-width: 800px; 
+    padding: 28px;
+    color: #ab0000;
+    z-index: 5;
+    overflow: visible;
+    line-height: 1.5; 
 }
 .personajes {
     background-image: url("imagenes/fondo3.png");
@@ -554,13 +612,266 @@ section{
 }
 
 .nosotros {
-    background-image: url("imagenes/fondo4.jpg");
+    background-image: url("imagenes/fondo4.jpg.png");
     background-size: cover;
-    background-position: center;
+    background-position: 25% center; /* movido hacia la izquierda para mostrar más la parte derecha */
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+.nosotrostexto {
+    position: absolute;
+    left: 79%;
+    top: 35%;
+        transform: translate(-40%, -75%) rotate(-21deg);
+        text-align: left;
+        font-size: 3rem; 
+        line-height: 1; 
+        font-weight: 500;
+    width: 70%;
+    max-width: 800px;
+    padding: 28px;
+    color: #a20000;
+    font-size: 25px;
+    z-index: 5;
+    overflow: visible;
+}
+
+.footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-family: 'Rubik Dirt', sans-serif;
+    position: relative;
+}
+.leo {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 10px;
+    vertical-align: middle;
+    float: left; /* añadido: flota a la izquierda */
+}
+
+.marie {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 10px;
+    vertical-align: middle;
+    float: right; /* añadido: flota a la derecha */
+}
+
+/* ========================================================= */
+/* === RESPONSIVE Y MENÚ HAMBURGUESA === */
+/* ========================================================= */
+
+/* ====== MENÚ HAMBURGUESA ====== */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1200;
+  width: 45px; /* un poco más grande */
+  height: 35px;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.7); /* fondo semi-transparente */
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  background: rgb(255, 251, 0);
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+/* Estado activo del icono */
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 80px 0 40px;
+  text-align: center;
+  z-index: 1100;
+}
+
+.mobile-menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 1.6rem;
+  margin: 15px 0;
+  transition: color 0.3s;
+}
+.mobile-menu a:hover { color: #F25D07; }
+
+/* Mostrar menú cuando esté activo */
+.mobile-menu.active {
+  display: block;
+}
+
+/* ====== CAMBIOS EN VERSIÓN TABLET Y MÓVIL ====== */
+@media (max-width: 1024px) { 
+
+  /* Mostrar menú hamburguesa */
+  .hamburger { display: flex; }
+
+  /* Ocultar navegación normal */
+  header nav { display: none; }
+
+  /* Fondo distinto */
+  .introduccion {
+    background: url("imagenes/fondo1.png") center/cover no-repeat fixed;
+  }
+
+    /* --- Fondo y estilos exclusivos para la sección .info en responsive --- */
+    .info {
+        background-image: url("imagenes/fondointroducción2.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+    }
+    
+    /* Estilos específicos para los textos en responsive */
+    .info .infodelapagina {
+        width: 70%;
+        max-width: none;
+        left: 55%;
+        transform: translateX(-50%);
+        top: 15%;
+        padding: 20px;
+        text-align: left;
+        font-size: 16px;
+    }
+    
+
+    .info .infodelapagina3 {
+        width: 80%;
+        max-width: none;
+        left: 60%;
+        transform: translateX(-50%);
+        top: 65%;
+        padding: 20px;
+        text-align: left;
+    }
+
+  /* El logo más abajo y más grande en responsive */
+  .introduccion .logo {
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    width: 95vw;
+    max-width: 800px; /* aumentado el tamaño máximo */
+    z-index: 100;
+  }
+
+  /* Ajustar los elementos visuales */
+  .introduccion .bocadillo,
+  .introduccion .señal,
+  .introduccion .teamrocket,
+  .introduccion .gente {
+    display: none;
+  }
+
+  /* ====== PERSONAJES ====== */
+    /* En responsive queremos mostrar UNA foto del personaje y la info al lado
+         manteniendo el carrusel. Ocultamos elementos decorativos y forzamos
+         que cada slide se comporte como un contenedor flexible (imagen + texto). */
+    .personajes section {
+        display: flex;
+        flex-direction:column; /* imagen + texto lado a lado */
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        padding: 40px 20px;
+    }
+
+    /* Forzamos que la imagen principal ocupe hasta ~45% y se muestre correctamente
+         si el HTML usa <img> para la foto del personaje. Si la imagen tiene una
+         clase concreta (p.ej. .character) preferir esa clase y ajustar aquí. */
+    .personajes section img {
+        max-width: 45%;
+        height: auto;
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        top: auto !important;
+        object-fit: contain;
+        z-index: 6;
+    }
+
+    /* El bloque de texto (article.lore1) se coloca al lado y tiene ancho limitado */
+    .personajes section article.lore1 {
+        max-width: 45%;
+        position: relative !important;
+        left: auto; right: auto; bottom: auto; top: auto;
+        transform: none;
+        text-align: left;
+        color: #fff; /* asegúrate que contraste con el fondo móvil */
+        z-index: 6;
+    }
+
+    /* Ocultamos elementos puramente decorativos que usan posicionamiento absoluto
+         y pueden romper el layout en móviles. Conservamos elementos de texto y
+         la estructura del carrusel (botones, slides). Ajusta las clases si tu HTML
+         usa otras convenciones. */
+    .personajes .totakeke,
+    .personajes .disco,
+    .personajes .juegods,
+    .personajes .tele,
+    .ScrollCarrusel .mano,
+    .ScrollCarrusel .hoja {
+        display: none !important;
+    }
+
+    /* Fondo distinto para la sección personajes en responsive */
+    .personajes {
+        background-image: url("imagenes/movil.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+    }
+
+  /* ====== NOSOTROS ====== */
+  .nosotros {
+    background-image: url("imagenes/fondo4.jpg.png");
+    background-size: cover;
+    background-position: 80% ; /* movido hacia la izquierda para mostrar más la parte derecha */
     background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
 }
 
+.nosotrostexto {
+        left: 60%;
+        top: 45%;
+        transform: translate(-40%, -75%) rotate(-21deg);
+        text-align: left;
+        width: 90%;
+    font-size: 20px; /* tamaño normal en desktop */
+    line-height: 1.1;
+    max-width: 1200px;
+    z-index: 5;
 
+}
 
+}
