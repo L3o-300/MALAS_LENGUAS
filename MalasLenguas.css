@@ -875,13 +875,13 @@ footer img {
 
   footer {
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 10px;
     font-size: clamp(16px, 4vw, 20px); 
     padding: 25px 15px;
     min-height: auto; 
   }
 
   footer img {
-    width: clamp(60px, 15vw, 100px); 
+    width: clamp(40px, 15vw, 90px); 
   }
 }
