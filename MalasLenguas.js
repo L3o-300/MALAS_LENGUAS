@@ -106,25 +106,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// ========== MODAL DE PERSONAJES (SOLO EN RESPONSIVE) ==========
 document.addEventListener('DOMContentLoaded', function() {
-    // Función para verificar si estamos en vista móvil
     function isMobileView() {
-        return window.innerWidth <= 1024; // Ajusta según tu breakpoint del @media
+        return window.innerWidth <= 1024; 
     }
     
-    // Seleccionar todas las imágenes principales de personajes
     const personajeImages = document.querySelectorAll(
         '.totakeke, .yayoi, .ladygagamini, .edwardmini, .rusowskymini, .dinomini'
     );
     
-    // Verificar que Bootstrap esté cargado
     if (typeof bootstrap === 'undefined') {
         console.error('Bootstrap no está cargado');
         return;
     }
     
-    // Crear instancia del modal de Bootstrap
     const loreModalElement = document.getElementById('loreModal');
     if (!loreModalElement) {
         console.error('No se encontró el modal #loreModal');
@@ -133,29 +128,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const loreModal = new bootstrap.Modal(loreModalElement);
     
-    // Añadir event listener a cada imagen
     personajeImages.forEach(function(img) {
         img.addEventListener('click', function() {
-            // Solo ejecutar en vista móvil
             if (!isMobileView()) return;
             
-            // Encontrar la sección del personaje
             const section = this.closest('section');
             const lore = section.querySelector('.lore1');
             const title = section.querySelector('h3');
             
             if (lore && title) {
-                // Actualizar contenido del modal
                 document.getElementById('loreModalLabel').textContent = title.textContent;
                 document.getElementById('loreModalBody').innerHTML = lore.innerHTML;
                 
-                // Mostrar el modal
                 loreModal.show();
             }
         });
     });
     
-    // Cerrar modal al cambiar a vista desktop
     window.addEventListener('resize', function() {
         if (!isMobileView()) {
             const modalInstance = bootstrap.Modal.getInstance(loreModalElement);
