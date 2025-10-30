@@ -181,6 +181,23 @@
     <img src="imagenes/pan.png" class="pan" alt="pan">
     <img src="imagenes/fossilAC.png" class="fossil" alt="fossilAC">
 </section>
+<div class="music-player" id="musicPlayer">
+    <div class="music-player-header">
+        <span class="music-title">MUSIQUILLA</span>
+        <button class="music-minimize" id="minimizePlayer">−</button>
+    </div>
+    <div class="music-content" id="musicContent">
+        <div class="music-controls">
+            <button class="music-btn" id="prevBtn">⏮</button>
+            <button class="music-btn play-pause" id="playPauseBtn">▶</button>
+            <button class="music-btn" id="nextBtn">⏭</button>
+        </div>
+        <div class="music-track-name" id="trackName">Canción 1</div>
+    </div>
+    <audio id="audioPlayer" loop>
+        <source src="imagenes/musica/jesucristogarcia.mp3" type="audio/mpeg">
+    </audio>
+</div>
         <!-- JS GSAP  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>

@@ -156,3 +156,138 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('Sistema de modales inicializado correctamente');
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const musicPlayer = document.getElementById('musicPlayer');
+    const audioPlayer = document.getElementById('audioPlayer');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const minimizePlayer = document.getElementById('minimizePlayer');
+    const trackName = document.getElementById('trackName');
+
+    const playlist = [
+        { src: "imagenes/musica/jesucristogarcia.mp3", name: 'Jesucristo García' },
+        { src: "imagenes/musica/Just_Dance.mp3", name: 'Just Dance' },
+        { src: "imagenes/musica/Backstabber.mp3", name: 'Backstabber' },
+        { src: "imagenes/musica/SuperBass.mp3", name: 'Super Bass' }
+    ];
+
+    let currentTrack = 0;
+    let isPlaying = false;
+    let isMinimized = false;
+
+    function loadTrack(index) {
+        audioPlayer.src = playlist[index].src;
+        trackName.textContent = playlist[index].name;
+    }
+
+    playPauseBtn.addEventListener('click', function() {
+        if (isPlaying) {
+            audioPlayer.pause();
+            playPauseBtn.textContent = '▶';
+            isPlaying = false;
+        } else {
+            audioPlayer.play();
+            playPauseBtn.textContent = '⏸';
+            isPlaying = true;
+        }
+    });
+
+    prevBtn.addEventListener('click', function() {
+        currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+        loadTrack(currentTrack);
+        if (isPlaying) {
+            audioPlayer.play();
+        }
+    });
+
+    nextBtn.addEventListener('click', function() {
+        currentTrack = (currentTrack + 1) % playlist.length;
+        loadTrack(currentTrack);
+        if (isPlaying) {
+            audioPlayer.play();
+        }
+    });
+
+    minimizePlayer.addEventListener('click', function() {
+        if (isMinimized) {
+            musicPlayer.classList.remove('minimized');
+            minimizePlayer.textContent = '−';
+            isMinimized = false;
+        } else {
+            musicPlayer.classList.add('minimized');
+            minimizePlayer.textContent = '+';
+            isMinimized = true;
+        }
+    });
+
+    audioPlayer.addEventListener('ended', function() {
+        currentTrack = (currentTrack + 1) % playlist.length;
+        loadTrack(currentTrack);
+        audioPlayer.play();
+    });
+
+    let isDragging = false;
+    let currentX;
+    let currentY;
+    let initialX;
+    let initialY;
+    let xOffset = 0;
+    let yOffset = 0;
+
+    musicPlayer.addEventListener('mousedown', dragStart);
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', dragEnd);
+
+    musicPlayer.addEventListener('touchstart', dragStart);
+    document.addEventListener('touchmove', drag);
+    document.addEventListener('touchend', dragEnd);
+
+    function dragStart(e) {
+        if (e.target.classList.contains('music-btn') || 
+            e.target.classList.contains('music-minimize')) {
+            return;
+        }
+
+        if (e.type === 'touchstart') {
+            initialX = e.touches[0].clientX - xOffset;
+            initialY = e.touches[0].clientY - yOffset;
+        } else {
+            initialX = e.clientX - xOffset;
+            initialY = e.clientY - yOffset;
+        }
+
+        isDragging = true;
+    }
+
+    function drag(e) {
+        if (isDragging) {
+            e.preventDefault();
+
+            if (e.type === 'touchmove') {
+                currentX = e.touches[0].clientX - initialX;
+                currentY = e.touches[0].clientY - initialY;
+            } else {
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+            }
+
+            xOffset = currentX;
+            yOffset = currentY;
+
+            setTranslate(currentX, currentY, musicPlayer);
+        }
+    }
+
+    function dragEnd(e) {
+        initialX = currentX;
+        initialY = currentY;
+        isDragging = false;
+    }
+
+    function setTranslate(xPos, yPos, el) {
+        el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+    }
+
+    loadTrack(0);
+});
