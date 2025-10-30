@@ -276,14 +276,52 @@ section{
 }
 .personajes .lore1 {
     position: absolute;
-    width: 280px;
-    height: auto;
-    object-fit: contain;
-    left: 12%;   
-    bottom: 20%;  
-    font-size: 19px;
-    color:#4b371f;
+    object-fit: contain; 
+    color: #4b371f;
     z-index: 20;
+    line-height: 1.4;
+}
+
+.TOTAKEKEMINI .lore1 {
+    font-size: 20px;
+    width: 260px;
+    bottom: 22%;
+    left: 13%;
+}
+
+.YAYOIMINI .lore1 {
+    font-size: 20px;
+    width: 260px;
+    bottom: 22%;
+    left: 13%;
+}
+
+.LADYGAGAMINI .lore1 {
+    font-size: 20px;
+    width: 260px;
+    bottom: 25%;
+    left: 13%;
+}
+
+.EDWARDMINI .lore1 {
+    font-size: 20px;
+    width: 260px;
+    bottom: 25%;
+    left: 13%;
+}
+
+.RUSOWSKYMINI .lore1 {
+    font-size: 20px;
+    width: 260px;
+    bottom: 22%;
+    left: 13%;
+}
+
+.DINOMINI .lore1 {
+    font-size: 20px;
+    width: 260px;
+    bottom: 27%;
+    left: 13%;
 }
 
 .personajes .tele {
@@ -595,6 +633,127 @@ footer img {
   height: auto;
   transition: transform 0.3s ease;
 }
+.decoracionqueflotan {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; 
+    z-index: 500; 
+    top: 0;
+    left: 0;
+}
+
+.estrella1 {
+    position: fixed;
+    width: 80px;
+    height: auto;
+    top: 25%;
+    left: 5%;
+    animation: float-up-down 3s ease-in-out infinite;
+    z-index: 500;
+}
+
+.estrella2 {
+    position: fixed;
+    width: 120px;
+    height: auto;
+    bottom: 12%;
+    right: 2%;
+    animation: float-rotate 4s ease-in-out infinite;
+    z-index: 500;
+}
+
+.emoji {
+    position: fixed;
+    width: 150px;
+    height: auto;
+    bottom: 0%;
+    left: 10%;
+    animation: float-bounce 2.5s ease-in-out infinite;
+    z-index: 500;
+}
+.espiral {
+    position: fixed;
+    width: 100px;
+    height: auto;
+    top: 30%;
+    left: 0%;
+    animation: float-spin 5s ease-in-out infinite;
+    z-index: 500;
+}
+.zzz {
+    position: fixed;
+    width: 150px;
+    height: auto;
+    bottom: 0%;
+    right: 2%;
+    animation: float-up-down 3.5s ease-in-out infinite;
+    z-index: 500;
+}
+.pez {
+    position: fixed;
+    width: 120px;
+    height: auto;
+    top: 5%;
+    right: 5%;
+    animation: float-rotate 4.5s ease-in-out infinite;
+    z-index: 500;
+}
+.pan {
+    position: fixed;
+    width: 100px;
+    height: auto;
+    bottom: 0%;
+    right: 12%;
+    animation: float-bounce 3s ease-in-out infinite;
+    z-index: 500;
+}
+.fossil {
+    position: fixed;
+    width: 110px;
+    height: auto;
+    top: 15%;
+    right: 2%;
+    animation: float-spin 6s ease-in-out infinite;
+    z-index: 500;
+}
+@keyframes float-up-down {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+@keyframes float-rotate {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(15deg) scale(1.1);
+    }
+}
+
+@keyframes float-bounce {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }  
+}
+@keyframes float-spin {
+    0% {
+        transform: rotate(0deg) scale(0.9);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.1);
+    }
+    100% {
+        transform: rotate(360deg) scale(0.9);
+    }
+}
 
 .hamburger {
   display: none;
@@ -652,6 +811,7 @@ footer img {
 .mobile-menu.active {
   display: block;
 }
+
 
 @media (max-width: 1024px) { 
 
@@ -902,6 +1062,9 @@ footer img {
     text-align: center;
     margin: 0;
     font-size: clamp(14px, 3.5vw, 18px);
+  }
+  .decoracionqueflotan {
+    display: none; 
   }
 
 }
